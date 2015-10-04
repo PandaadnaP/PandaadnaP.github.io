@@ -1,37 +1,828 @@
-extends _inc/layout.jade
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
 
-block head_title
-    title
-        = page.title + ' | ' + config.title
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="Share Learing" />
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="“Can go further” means that this part can be learned deeper.
+You Manipulate Objects With References1String s;
+s is just a reference.
+1String s = &quot;haha&quot;;
+“haha” is an object.
+So you can manipulate the">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Everything is an Object">
+<meta property="og:url" content="http://yoursite.com/2015/10/04/Everything-is-an-Object/index.html">
+<meta property="og:site_name" content="PandaadnaP's blog">
+<meta property="og:description" content="“Can go further” means that this part can be learned deeper.
+You Manipulate Objects With References1String s;
+s is just a reference.
+1String s = &quot;haha&quot;;
+“haha” is an object.
+So you can manipulate the">
+<meta property="og:image" content="http://7xmqel.com1.z0.glb.clouddn.com/primitive-type.jpg">
+<meta property="og:updated_time" content="2015-10-04T02:50:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Everything is an Object">
+<meta name="twitter:description" content="“Can go further” means that this part can be learned deeper.
+You Manipulate Objects With References1String s;
+s is just a reference.
+1String s = &quot;haha&quot;;
+“haha” is an object.
+So you can manipulate the">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Everything is an Object | PandaadnaP's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">PandaadnaP's blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
         
-block head_descriptions
-    if page.description
-        meta(name='description', content=page.description)
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首頁
+          </a>
+        </li>
+      
         
-block main
-
-    article.article
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            歸檔
+          </a>
+        </li>
+      
         
-        time(datetime=date_xml(page.date))= date(page.date)
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            標籤
+          </a>
+        </li>
+      
 
+      
+      
+    </ul>
+  
 
-        if page.link
-            h2.article-title
-                a(href=url_for(page.link) target="_blank")= page.title || 'No Title'
-        else
-            h2.article-title
-                a(href=url_for(page.path))= page.title || 'No Title'
-                
-        div.content
-            != page.content
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
             
-        div.meta
-            if page.categories && page.categories.length
-                p.meta-cats
-                    != list_categories(page.categories, { show_count: false, style: 'none', separator: ', ' })
+              Everything is an Object
             
-            if page.tags && page.tags.length
-                p.meta-tags
-                    != list_tags(page.tags, { show_count: false, style: 'none', separator: ', ' })
+          
+        </h1>
+      
 
-    include _inc/content-nav
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-10-04T10:02:50+08:00" content="2015-10-04">
+            2015-10-04
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><hr>
+<h5 id="“Can_go_further”_means_that_this_part_can_be_learned_deeper-"><strong>“Can go further”</strong> means that this part can be learned deeper.</h5><hr>
+<h2 id="You_Manipulate_Objects_With_References">You Manipulate Objects With References</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s;</span><br></pre></td></tr></table></figure>
+<p>s is just a reference.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"haha"</span>;</span><br></pre></td></tr></table></figure>
+<p>“haha” is an object.</p>
+<p>So you can manipulate the object “haha” with the reference s.</p>
+<h2 id="You_Must_Create_All_the_Object">You Must Create All the Object</h2><p>By using keyword <strong>new</strong> we can create an object.So  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"haha"</span>;</span><br></pre></td></tr></table></figure>
+<p>is equal to  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="keyword">new</span> String(<span class="string">"haha"</span>);</span><br></pre></td></tr></table></figure>
+<p>In fact, one of the hehaviours you always do in Java is <strong>creating objects</strong>.We must keep our habbit on creating an object.  </p>
+<h3 id="Where_Storage_Lives(Can_go_further)">Where Storage Lives(Can go further)</h3><ol>
+<li><strong>Register</strong></li>
+<li><strong>The stack</strong></li>
+<li><strong>The heap</strong></li>
+<li><strong>Constant Storage</strong></li>
+<li><strong>None-RAM Storage</strong></li>
+</ol>
+<h3 id="Special_Case:Primitive_Types">Special Case:Primitive Types</h3><p>When you use the following types,you needn’t create an object by using <strong>new</strong>.</p>
+<h2 id=""><img src="http://7xmqel.com1.z0.glb.clouddn.com/primitive-type.jpg" alt="Primitive-Types"></h2><blockquote>
+<p><strong>微微一看:</strong>  </p>
+<ul>
+<li><p>The object produced by <strong>new</strong> is stored in the heap which is not so efficient.So Java manage <strong>Primitive-Type</strong> above like C and C++.  </p>
+</li>
+<li><p><strong>Primitive-Type</strong> is created not as a reference but a variable directly holds the value.</p>
+</li>
+<li><p>This kind of variables are stored in stack,which are more efficient.</p>
+</li>
+<li><p>Java determines the size of each primitive-type.So their size will not change when you change your machine architecture.</p>
+</li>
+<li><p>All numeric types are signed.There are no unsigned value.</p>
+</li>
+<li><p><strong>Boolean</strong> can only be <strong>true</strong> or <strong>false</strong></p>
+</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>Special:</strong></p>
+<ul>
+<li>We can also make a non-primitive object on heap to represent <strong>Primitive-type</strong> ,for example:</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Char c = <span class="string">'x'</span>;</span><br><span class="line">Character ch = <span class="keyword">new</span> Character(c);</span><br></pre></td></tr></table></figure>
+<p>   the same as:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Character ch = <span class="keyword">new</span> Character(<span class="string">'x'</span>);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="High-Precision_Number:_BigInteger_and_BigDecimal">High-Precision Number: BigInteger and BigDecimal</h3><ul>
+<li><p>You can do anything with a <strong>BigInteger</strong> or <strong>BigDecimal</strong> that you can with an <strong>int</strong> or <strong>float</strong>, but <strong>use method calls</strong> instead of operators.</p>
+</li>
+<li><p><strong>BigInteger</strong> supports arbitrary-precision(任意精度的) integers</p>
+</li>
+<li><p><strong>BigDecimal</strong> is for arbitrary-precision fixed-point numbers(定点数)</p>
+</li>
+</ul>
+<h3 id="Array_in_Java_is_safe">Array in Java is safe</h3><blockquote>
+<ul>
+<li><strong>Range:</strong> Can not be accessed outside of its range.</li>
+<li><strong>Initialized:</strong> When you create an array object,in fact,you create a reference which is initialized to be <strong>null</strong>.</li>
+<li><strong>Why safe?</strong> As references must be pointed to objects,when you use a reference which is still <strong>null</strong>,problem will be reported in the runtime.</li>
+</ul>
+</blockquote>
+<h2 id="You_Never_need_to_Destroy_an_Object">You Never need to Destroy an Object</h2><h3 id="Scoping_of_Variable">Scoping of Variable</h3><blockquote>
+<ul>
+<li><p><strong>When destroy variable?</strong> A variable defined is available only to the end of that scope.</p>
+</li>
+<li><p><strong>Invalid defined in inner scope:</strong></p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">12</span>;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">8</span>;<span class="comment">//Invalid</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="Scoping_of_Object">Scoping of Object</h3><blockquote>
+<ul>
+<li>Reference will vanish(销毁) after the scope </li>
+<li>Object can live outside its scope.It still occupies memory.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    String s = <span class="keyword">new</span> String(<span class="string">"a string"</span>);</span><br><span class="line">&#125;<span class="comment">//End of scope</span></span><br></pre></td></tr></table></figure>
+<p> The Object “a string” is still alive after the scope,but the reference <strong>s</strong> is vanished.So you can not access the object after the scope because the only reference to the object is vanished. </p>
+<ul>
+<li>Java has a garbage colector.</li>
+</ul>
+</blockquote>
+<h2 id="Creating_new_data_Type:_Class">Creating new data Type: Class</h2><p>A <strong>Class</strong> is to tell you the type of an object.</p>
+<blockquote>
+<ul>
+<li>Define a class</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ATypeName</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*Class body goes here*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="Fields_and_Method">Fields and Method</h3><blockquote>
+<p>All you need to do in Java is </p>
+<blockquote>
+<p>Defining Class<br>Creating Object<br>Sending Message to objects</p>
+</blockquote>
+</blockquote>
+<p>Two  type you can set in Class is <strong>Field</strong> and <strong>Method</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">DataOnly</span></span>&#123;</span><br><span class="line">    <span class="comment">/*****Field******/</span></span><br><span class="line">    <span class="keyword">int</span> i;           </span><br><span class="line">    <span class="keyword">double</span> d;</span><br><span class="line">    <span class="keyword">boolean</span> b;</span><br><span class="line">    <span class="comment">/*****Field******/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Every object has its own storage for its field.Field <strong>can not share</strong> between objects.</p>
+<p>Assign value to the field,using a dot(.) to refer to a member of an object.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DataOnly data = <span class="keyword">new</span> DataOnly();</span><br><span class="line">data.i = <span class="number">1</span>;</span><br><span class="line">data.d = <span class="number">1.1</span>;</span><br><span class="line">data.b = <span class="keyword">true</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Default_Value_for_Primitive-Members">Default Value for Primitive-Members</h3><blockquote>
+<ul>
+<li>If  yuu don’t initialize the <strong>primitive members of a class</strong>, a default value is given to these primitive members in Java.</li>
+<li>It does not work for <strong>local variable</strong>.And What will happen if you don’t initialize it is been given an warning.And the value of it is arbitrary value.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Primitive Type</th>
+<th style="text-align:center">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">‘\u0000’(null)</td>
+</tr>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">(byte)0</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">(short)0</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">0L</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">0.0f</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">0.0d</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Suggest</strong><br>Every Premitive need to be initialized.</p>
+</blockquote>
+<h2 id="Methods,Arguments_and_Return_Values">Methods,Arguments and Return Values</h2><blockquote>
+<ul>
+<li>Method is like <strong>function</strong> in C or C++.</li>
+<li>Methods in Java can be created only as part of a class.</li>
+<li>A method can be called only for an object,and that object must be able to perform that method call.</li>
+<li>The way to call method:</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ObjectName.MethodName(arg1, arg2, arg3);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Sending  Message to an object.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = a.f();</span><br></pre></td></tr></table></figure>
+<p>  a is an object, an f() is a message.</p>
+</blockquote>
+<h3 id="The_Argument_list">The Argument list</h3><pre><code>The same <span class="keyword">as</span> the <span class="keyword">function</span> <span class="keyword">in</span> C <span class="keyword">or</span> C++.
+</code></pre><h2 id="Building_a_Java_Program-">Building a Java Program.</h2><pre><code><span class="label">Some</span> things you must kown <span class="keyword">before </span>you <span class="keyword">building </span>your program.
+</code></pre><h3 id="Name_Visibility">Name Visibility</h3><p>To produce an unambiguous name for a library,the Java creators want you to use your Internet domain name in reverse since domain names are guaranteed to be unique.<br>For example:</p>
+<blockquote>
+<p><strong>Panda.com</strong></p>
+</blockquote>
+<p>can be transform into</p>
+<blockquote>
+<p><strong>com.Panda</strong></p>
+</blockquote>
+<h3 id="Using_Other_Components">Using Other Components</h3><p>Reserved word <strong>import</strong> help you to import a package in Java library for avoiding name crash.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;<span class="comment">//Telling Java compiler that you want to use the class "ArrayList"</span></span><br><span class="line">   </span><br><span class="line"><span class="keyword">import</span> java.util.*<span class="comment">//Telling Java compiler that you want to use some of the classes in util.</span></span><br></pre></td></tr></table></figure>
+<h3 id="The_Static_Keyword">The <strong>Static</strong> Keyword</h3><blockquote>
+<ul>
+<li>It’s not a must to create an object while you use <strong>Static</strong> keyword,for example:<blockquote>
+<p><strong>main</strong> method must be a static method,because it doesn’t need to create an object.Other methods like <strong>println</strong> are also a <strong>static</strong> methods. </p>
+</blockquote>
+</li>
+<li>You can make fields or methods to be <strong>Static</strong>.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StaticTest</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">47</span>;<span class="comment">//static a field</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Or </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Incrementable</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Increment</span><span class="params">()</span></span>&#123;<span class="comment">//static a function</span></span><br><span class="line">        StaticTest.a++;            </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>You can’t create a static field or a function in an inner class inside a class,for example:</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">StaticData</span></span>&#123;<span class="comment">//<span class="label">XXXX No this Way XXXX</span></span></span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">47</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> class <span class="keyword">static</span> <span class="title">void</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.println(StaticData.a);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">        * You will get some error here.</span><br><span class="line">        * Because you create an inner class</span><br><span class="line">        * called "StaticData" inside the</span><br><span class="line">        * class called "Test"</span><br><span class="line">        */</span>  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>The following is right:</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> class <span class="keyword">static</span> <span class="title">void</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">              System.out.println(StaticData.a);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">StaticData</span></span>&#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">47</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>If you create two object of <strong>StaticData</strong>,like:</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">StaticData s1 = <span class="keyword">new</span> StaticData();</span><br><span class="line">StaticData s2 = <span class="keyword">new</span> StaticData();</span><br></pre></td></tr></table></figure>
+</blockquote>
+<pre><code><span class="keyword">*</span><span class="keyword">*</span>s1<span class="keyword">*</span><span class="keyword">*</span> and <span class="keyword">*</span><span class="keyword">*</span>s2<span class="keyword">*</span><span class="keyword">*</span> share the same <span class="keyword">*</span><span class="keyword">*</span>a<span class="keyword">*</span><span class="keyword">*</span>.
+</code></pre><blockquote>
+<ul>
+<li><p>Two way to refer to an <strong>static</strong> variable:</p>
+<blockquote>
+<ul>
+<li>name it via an object,like the one above.</li>
+<li>refer to it through its class name,for example,<strong>StaticData.a</strong></li>
+</ul>
+</blockquote>
+</li>
+<li><p>After execute</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Incrementalble.Incremente();</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>Both <strong>s1.a</strong> and <strong>s2.a</strong> has the same value of 48.</p>
+<h2 id="My_First_Java_Program">My First Java Program</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HelloDate.java</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;<span class="comment">//you must place any necessary "import" statements to bring in extra classes you’ll need for the code in that file. </span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloDate</span> </span>&#123;<span class="comment">//One of the classes in the file must have the same name as the file.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;<span class="comment">//In this class must have an "main" method with argument and return type.</span></span><br><span class="line">        System.out.println(<span class="string">"Hello, it’s: "</span>);<span class="comment">//This is a method to display message to the console.</span></span><br><span class="line">        System.out.println(<span class="keyword">new</span> Date());</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Compile_and_Running">Compile and Running</h3><p>Compile:</p>
+<blockquote>
+<p>javac HelloData.java</p>
+</blockquote>
+<p>Running:</p>
+<blockquote>
+<p>java HelloData</p>
+</blockquote>
+<h3 id="Comment_and_Embedded">Comment and Embedded</h3><blockquote>
+<ul>
+<li>Two kinds of comment in Java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">/* Comment Here</span><br><span class="line">     * Crossing Lines</span><br><span class="line">     */</span></span><br><span class="line">&gt;</span><br><span class="line">    <span class="comment">//One-Line Comment</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="Comment_Documents">Comment Documents</h4><pre><code>Link <span class="operator">the</span> code <span class="built_in">to</span> <span class="operator">the</span> documentation
+</code></pre><h4 id="Syntax">Syntax</h4><blockquote>
+<ul>
+<li>All of the Javadoc commands occur only within /<em>* comments. The comments end with </em>/ as usual.</li>
+<li>There are two primary ways to use Javadoc:<blockquote>
+<p><strong>Embed HTML</strong><br><strong>Doc Tags</strong>:</p>
+<blockquote>
+<p>Standalone doc tags<br>Inline doc tags</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/03/hello-world/" rel="next">Hello World</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Panda" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Panda</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">Share Learing</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#“Can_go_further”_means_that_this_part_can_be_learned_deeper-"><span class="nav-number">1.</span> <span class="nav-text">“Can go further” means that this part can be learned deeper.</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#You_Manipulate_Objects_With_References"><span class="nav-number"></span> <span class="nav-text">You Manipulate Objects With References</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#You_Must_Create_All_the_Object"><span class="nav-number"></span> <span class="nav-text">You Must Create All the Object</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Where_Storage_Lives(Can_go_further)"><span class="nav-number"></span> <span class="nav-text">Where Storage Lives(Can go further)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Special_Case:Primitive_Types"><span class="nav-number"></span> <span class="nav-text">Special Case:Primitive Types</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#High-Precision_Number:_BigInteger_and_BigDecimal"><span class="nav-number"></span> <span class="nav-text">High-Precision Number: BigInteger and BigDecimal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array_in_Java_is_safe"><span class="nav-number"></span> <span class="nav-text">Array in Java is safe</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#You_Never_need_to_Destroy_an_Object"><span class="nav-number"></span> <span class="nav-text">You Never need to Destroy an Object</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scoping_of_Variable"><span class="nav-number"></span> <span class="nav-text">Scoping of Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scoping_of_Object"><span class="nav-number"></span> <span class="nav-text">Scoping of Object</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Creating_new_data_Type:_Class"><span class="nav-number"></span> <span class="nav-text">Creating new data Type: Class</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fields_and_Method"><span class="nav-number"></span> <span class="nav-text">Fields and Method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Default_Value_for_Primitive-Members"><span class="nav-number"></span> <span class="nav-text">Default Value for Primitive-Members</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods,Arguments_and_Return_Values"><span class="nav-number"></span> <span class="nav-text">Methods,Arguments and Return Values</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The_Argument_list"><span class="nav-number"></span> <span class="nav-text">The Argument list</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Building_a_Java_Program-"><span class="nav-number"></span> <span class="nav-text">Building a Java Program.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Name_Visibility"><span class="nav-number"></span> <span class="nav-text">Name Visibility</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using_Other_Components"><span class="nav-number"></span> <span class="nav-text">Using Other Components</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The_Static_Keyword"><span class="nav-number"></span> <span class="nav-text">The Static Keyword</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#My_First_Java_Program"><span class="nav-number"></span> <span class="nav-text">My First Java Program</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Compile_and_Running"><span class="nav-number"></span> <span class="nav-text">Compile and Running</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comment_and_Embedded"><span class="nav-number"></span> <span class="nav-text">Comment and Embedded</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Comment_Documents"><span class="nav-number"></span> <span class="nav-text">Comment Documents</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Syntax"><span class="nav-number"></span> <span class="nav-text">Syntax</span></a></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Panda</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
