@@ -1,109 +1,58 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>PandaadnaP&#39;s blog › 归档：2015</title>
-  <meta name="author" content="Panda">
-  
-  <meta name="description" content="Share Learing">
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+extends _inc/layout.jade
 
-  
-  <meta property="og:site_name" content="PandaadnaP&#39;s blog"/>
+block head_title
+    title 
+        if !is_year()
+            = 'Sitemap | ' + config.title
+            
+        else
+            = page.year + '/' + page.month + ' | ' + config.title
+            
 
-  
-    <meta property="og:image" content="undefined"/>
-  
+block main
 
-  <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="http://feeds.feedburner.com/willerce" title="PandaadnaP&#39;s blog" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-32857089-1']);
-  _gaq.push(['_trackPageview']);
+    if !is_year()
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+        div.sitemap
+        
+            p.archive-title Sitemap
+                        
+            aside
+                h2 Categories
+                != list_categories({ show_count: false })
+                
+            aside
+                h2 Tags
+                != list_tags({ show_count: false })
+                
+            aside
+                h2 Archives
+                != list_archives({ show_count: false })
 
-</head>
+    else
+        div.page-archive
+        
+            p.archive-title
+                = page.year + '/' + page.month
+        
+            ul.archive
 
+                - page.posts.each(function(article){
 
-<body>
-  <header id="header"><div class="meta inner">
-  <h1><a href="/">PandaadnaP&#39;s blog</a></h1>
-  <h2><a href="/">Share Learning</a></h2>
-  <nav id="main-nav">
-    <ul>
-      
-      <li><a href="/about">关于我</a></li>
-      
-      <li><a href="/archives">文章归档</a></li>
-      
-      <li><a href="/links">有情链接</a></li>
-      
-    </ul>
-    <div class="clearfix"></div>
-  </nav>
-</div>
-<div class="clearfix"></div>
-</header>
-  <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2015</h2>
+                    li
 
-  
-  <article class="archive">
-  
-    
-    
-      
-      <div class="archive-itme"><div id="2015" class="archive-year">2015</div>
-      <ul>
-      
-      <li>
-      <time datetime="2015-10-04T02:02:50.000Z">10-04</time>
-      <a href="/2015/10/04/Everything-is-an-Object/">Everything is an Object</a>
-      </li>
-  
-    
-    
-      <li>
-      <time datetime="2015-10-03T10:10:05.000Z">10-03</time>
-      <a href="/2015/10/03/hello-world/">Hello World</a>
-      </li>
-  
-  </article>
+                        if article.link
+                            time(datetime=date_xml(article.date))
+                                = date(article.date)
+                            h2.list-title
+                                a(href=url_for(article.link) target="_blank")= article.title || 'No Title'
 
+                        else
+                            time(datetime=date_xml(article.date))
+                                = date(article.date)
+                            h2.list-title
+                                a(href=url_for(article.path))= article.title || 'No Title'
 
+                - })
 
-
-</div></div>
-    <div class="clearfix"></div>
-  </div>
-  <footer id="footer"><div class="inner"><div class="alignleft">
-  <p>
-  
-    &copy; 2015 Panda
-  
-  </p>
-  <p>
-    <a href="http://github.com/willerce/hexo-theme-noderce">Noderce</a> Theme By <a href="http://willerce.com" >willerce</a>
-  </p>
-
-</div>
-<div class="clearfix"></div></div></footer>
-  <script type="text/javascript">
-
-</script>
-
-</body>
-</html>
+        include _inc/pagination.jade
