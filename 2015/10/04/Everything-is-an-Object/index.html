@@ -51,25 +51,26 @@
 </span>
     <h1 class="post-title">Everything is an Object</h1>
     <section class="post-content">
-      <h1 id="Everything_is_an_Object">Everything is an Object</h1><h5 id="“Can_go_further”_means_that_this_part_can_be_learned_deeper-"><strong>“Can go further”</strong> means that this part can be learned deeper.</h5><hr>
-<h1 id="You_Manipulate_Objects_With_References">You Manipulate Objects With References</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s;</span><br></pre></td></tr></table></figure>
+      <h1 id="Everything_is_an_Object">Everything is an Object</h1><hr>
+<h5 id="“Can_go_further”_means_that_this_part_can_be_learned_deeper-"><strong>“Can go further”</strong> means that this part can be learned deeper.</h5><hr>
+<h2 id="You_Manipulate_Objects_With_References">You Manipulate Objects With References</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s;</span><br></pre></td></tr></table></figure>
 <p>s is just a reference.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"haha"</span>;</span><br></pre></td></tr></table></figure>
 <p>“haha” is an object.</p>
 <p>So you can manipulate the object “haha” with the reference s.</p>
-<h1 id="You_Must_Create_All_the_Object">You Must Create All the Object</h1><p>By using keyword <strong>new</strong> we can create an object.So  </p>
+<h2 id="You_Must_Create_All_the_Object">You Must Create All the Object</h2><p>By using keyword <strong>new</strong> we can create an object.So  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"haha"</span>;</span><br></pre></td></tr></table></figure>
 <p>is equal to  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="keyword">new</span> String(<span class="string">"haha"</span>);</span><br></pre></td></tr></table></figure>
 <p>In fact, one of the hehaviours you always do in Java is <strong>creating objects</strong>.We must keep our habbit on creating an object.  </p>
-<h2 id="Where_Storage_Lives(Can_go_further)">Where Storage Lives(Can go further)</h2><ol>
+<h3 id="Where_Storage_Lives(Can_go_further)">Where Storage Lives(Can go further)</h3><ol>
 <li><strong>Register</strong></li>
 <li><strong>The stack</strong></li>
 <li><strong>The heap</strong></li>
 <li><strong>Constant Storage</strong></li>
 <li><strong>None-RAM Storage</strong></li>
 </ol>
-<h2 id="Special_Case:Primitive_Types">Special Case:Primitive Types</h2><p>When you use the following types,you needn’t create an object by using <strong>new</strong>.</p>
+<h3 id="Special_Case:Primitive_Types">Special Case:Primitive Types</h3><p>When you use the following types,you needn’t create an object by using <strong>new</strong>.</p>
 <h2 id=""><img src="http://7xmqel.com1.z0.glb.clouddn.com/primitive-type.jpg" alt="Primitive-Types"></h2><blockquote>
 <p><strong>微微一看:</strong>  </p>
 <ul>
@@ -93,11 +94,11 @@
 <ul>
 <li>We can also make a non-primitive object on heap to represent <strong>Primitive-type</strong> ,for example:</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Char c = <span class="string">'x'</span>;</span><br><span class="line">Character ch = <span class="keyword">new</span> Character(c);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Char c = <span class="string">'x'</span>;</span><br><span class="line">Character ch = <span class="keyword">new</span> Character(c);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 <p>   the same as:  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Character ch = <span class="keyword">new</span> Character(<span class="string">'x'</span>);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="High-Precision_Number:_BigInteger_and_BigDecimal">High-Precision Number: BigInteger and BigDecimal</h2><ul>
+<h3 id="High-Precision_Number:_BigInteger_and_BigDecimal">High-Precision Number: BigInteger and BigDecimal</h3><ul>
 <li><p>You can do anything with a <strong>BigInteger</strong> or <strong>BigDecimal</strong> that you can with an <strong>int</strong> or <strong>float</strong>, but <strong>use method calls</strong> instead of operators.</p>
 </li>
 <li><p><strong>BigInteger</strong> supports arbitrary-precision(任意精度的) integers</p>
@@ -105,14 +106,14 @@
 <li><p><strong>BigDecimal</strong> is for arbitrary-precision fixed-point numbers(定点数)</p>
 </li>
 </ul>
-<h2 id="Array_in_Java_is_safe">Array in Java is safe</h2><blockquote>
+<h3 id="Array_in_Java_is_safe">Array in Java is safe</h3><blockquote>
 <ul>
 <li><strong>Range:</strong> Can not be accessed outside of its range.</li>
 <li><strong>Initialized:</strong> When you create an array object,in fact,you create a reference which is initialized to be <strong>null</strong>.</li>
 <li><strong>Why safe?</strong> As references must be pointed to objects,when you use a reference which is still <strong>null</strong>,problem will be reported in the runtime.</li>
 </ul>
 </blockquote>
-<h1 id="You_Never_need_to_Destroy_an_Object">You Never need to Destroy an Object</h1><h2 id="Scoping_of_Variable">Scoping of Variable</h2><blockquote>
+<h2 id="You_Never_need_to_Destroy_an_Object">You Never need to Destroy an Object</h2><h3 id="Scoping_of_Variable">Scoping of Variable</h3><blockquote>
 <ul>
 <li><p><strong>When destroy variable?</strong> A variable defined is available only to the end of that scope.</p>
 </li>
@@ -121,7 +122,7 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">12</span>;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">8</span>;<span class="comment">//Invalid</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="Scoping_of_Object">Scoping of Object</h2><blockquote>
+<h3 id="Scoping_of_Object">Scoping of Object</h3><blockquote>
 <ul>
 <li>Reference will vanish(销毁) after the scope </li>
 <li>Object can live outside its scope.It still occupies memory.</li>
@@ -132,14 +133,14 @@
 <li>Java has a garbage colector.</li>
 </ul>
 </blockquote>
-<h1 id="Creating_new_data_Type:_Class">Creating new data Type: Class</h1><p>A <strong>Class</strong> is to tell you the type of an object.</p>
+<h2 id="Creating_new_data_Type:_Class">Creating new data Type: Class</h2><p>A <strong>Class</strong> is to tell you the type of an object.</p>
 <blockquote>
 <ul>
 <li>Define a class</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ATypeName</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*Class body goes here*/</span></span><br><span class="line">&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="Fields_and_Method">Fields and Method</h2><blockquote>
+<h3 id="Fields_and_Method">Fields and Method</h3><blockquote>
 <p>All you need to do in Java is </p>
 <blockquote>
 <p>Defining Class<br>Creating Object<br>Sending Message to objects</p>
@@ -150,14 +151,14 @@
 <p>Every object has its own storage for its field.Field <strong>can not share</strong> between objects.</p>
 <p>Assign value to the field,using a dot(.) to refer to a member of an object.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DataOnly data = <span class="keyword">new</span> DataOnly();</span><br><span class="line">data.i = <span class="number">1</span>;</span><br><span class="line">data.d = <span class="number">1.1</span>;</span><br><span class="line">data.b = <span class="keyword">true</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="Default_Value_for_Primitive-Members">Default Value for Primitive-Members</h2><blockquote>
+<h3 id="Default_Value_for_Primitive-Members">Default Value for Primitive-Members</h3><blockquote>
 <ul>
 <li>If  yuu don’t initialize the <strong>primitive members of a class</strong>, a default value is given to these primitive members in Java.</li>
 <li>It does not work for <strong>local variable</strong>.And What will happen if you don’t initialize it is been given an warning.And the value of it is arbitrary value.<br>| Primitive Type | Default Value |<br>| :—:    | :—:  |<br>|  boolean | false |<br>|char|’\u0000’(null)|<br>|byte|(byte)0|<br>|short|(short)0|<br>|int|0|<br>|long|0L|<br>|float|0.0f|<br>|double|0.0d|</li>
 </ul>
 <p><strong>Suggest</strong><br>Every Premitive need to be initialized.</p>
 </blockquote>
-<h1 id="Methods,Arguments_and_Return_Values">Methods,Arguments and Return Values</h1><blockquote>
+<h2 id="Methods,Arguments_and_Return_Values">Methods,Arguments and Return Values</h2><blockquote>
 <ul>
 <li>Method is like <strong>function</strong> in C or C++.</li>
 <li>Methods in Java can be created only as part of a class.</li>
@@ -171,9 +172,9 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">int</span> x = a.f();</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 <p>  a is an object, an f() is a message.</p>
 </blockquote>
-<h2 id="The_Argument_list">The Argument list</h2><pre><code>The same <span class="keyword">as</span> the <span class="keyword">function</span> <span class="keyword">in</span> C <span class="keyword">or</span> C++.
-</code></pre><h1 id="Building_a_Java_Program-">Building a Java Program.</h1><pre><code><span class="label">Some</span> things you must kown <span class="keyword">before </span>you <span class="keyword">building </span>your program.
-</code></pre><h2 id="Name_Visibility">Name Visibility</h2><p>To produce an unambiguous name for a library,the Java creators want you to use your Internet domain name in reverse since domain names are guaranteed to be unique.<br>For example:</p>
+<h3 id="The_Argument_list">The Argument list</h3><pre><code>The same <span class="keyword">as</span> the <span class="keyword">function</span> <span class="keyword">in</span> C <span class="keyword">or</span> C++.
+</code></pre><h2 id="Building_a_Java_Program-">Building a Java Program.</h2><pre><code><span class="label">Some</span> things you must kown <span class="keyword">before </span>you <span class="keyword">building </span>your program.
+</code></pre><h3 id="Name_Visibility">Name Visibility</h3><p>To produce an unambiguous name for a library,the Java creators want you to use your Internet domain name in reverse since domain names are guaranteed to be unique.<br>For example:</p>
 <blockquote>
 <p><strong>Panda.com</strong></p>
 </blockquote>
@@ -181,9 +182,9 @@
 <blockquote>
 <p><strong>com.Panda</strong></p>
 </blockquote>
-<h2 id="Using_Other_Components">Using Other Components</h2><p>Reserved word <strong>import</strong> help you to import a package in Java library for avoiding name crash.</p>
+<h3 id="Using_Other_Components">Using Other Components</h3><p>Reserved word <strong>import</strong> help you to import a package in Java library for avoiding name crash.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;<span class="comment">//Telling Java compiler that you want to use the class "ArrayList"</span></span><br><span class="line">   </span><br><span class="line"><span class="keyword">import</span> java.util.*<span class="comment">//Telling Java compiler that you want to use some of the classes in util.</span></span><br></pre></td></tr></table></figure>
-<h2 id="The_Static_Keyword">The <strong>Static</strong> Keyword</h2><blockquote>
+<h3 id="The_Static_Keyword">The <strong>Static</strong> Keyword</h3><blockquote>
 <ul>
 <li>It’s not a must to create an object while you use <strong>Static</strong> keyword,for example:<blockquote>
 <p><strong>main</strong> method must be a static method,because it doesn’t need to create an object.Other methods like <strong>println</strong> are also a <strong>static</strong> methods. </p>
@@ -222,8 +223,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    Incrementalble.Incremente();</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>Both <strong>s1.a</strong> and <strong>s2.a</strong> has the same value of 48.</p>
-<h1 id="My_First_Java_Program">My First Java Program</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HelloDate.java</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;<span class="comment">//you must place any necessary "import" statements to bring in extra classes you’ll need for the code in that file. </span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloDate</span> </span>&#123;<span class="comment">//One of the classes in the file must have the same name as the file.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;<span class="comment">//In this class must have an "main" method with argument and return type.</span></span><br><span class="line">        System.out.println(<span class="string">"Hello, it’s: "</span>);<span class="comment">//This is a method to display message to the console.</span></span><br><span class="line">        System.out.println(<span class="keyword">new</span> Date());</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Compile_and_Running">Compile and Running</h2><p>Compile:</p>
+<h2 id="My_First_Java_Program">My First Java Program</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HelloDate.java</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;<span class="comment">//you must place any necessary "import" statements to bring in extra classes you’ll need for the code in that file. </span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloDate</span> </span>&#123;<span class="comment">//One of the classes in the file must have the same name as the file.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;<span class="comment">//In this class must have an "main" method with argument and return type.</span></span><br><span class="line">        System.out.println(<span class="string">"Hello, it’s: "</span>);<span class="comment">//This is a method to display message to the console.</span></span><br><span class="line">        System.out.println(<span class="keyword">new</span> Date());</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Compile_and_Running">Compile and Running</h3><p>Compile:</p>
 <blockquote>
 <p>javac HelloData.java</p>
 </blockquote>
@@ -231,14 +232,14 @@
 <blockquote>
 <p>java HelloData</p>
 </blockquote>
-<h2 id="Comment_and_Embedded">Comment and Embedded</h2><blockquote>
+<h3 id="Comment_and_Embedded">Comment and Embedded</h3><blockquote>
 <ul>
 <li>Two kinds of comment in Java</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">/* Comment Here</span><br><span class="line">     * Crossing Lines</span><br><span class="line">     */</span></span><br><span class="line">&gt;</span><br><span class="line">    <span class="comment">//One-Line Comment</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="Comment_Documents">Comment Documents</h3><pre><code>Link <span class="operator">the</span> code <span class="built_in">to</span> <span class="operator">the</span> documentation
-</code></pre><h3 id="Syntax">Syntax</h3><blockquote>
+<h4 id="Comment_Documents">Comment Documents</h4><pre><code>Link <span class="operator">the</span> code <span class="built_in">to</span> <span class="operator">the</span> documentation
+</code></pre><h4 id="Syntax">Syntax</h4><blockquote>
 <ul>
 <li>All of the Javadoc commands occur only within /<em>* comments. The comments end with </em>/ as usual.</li>
 <li>There are two primary ways to use Javadoc:<blockquote>
@@ -250,7 +251,7 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="Embedded_HTML">Embedded HTML</h3>
+
     </section>
     <footer class="post-footer">
       <section class="author">
